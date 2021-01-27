@@ -1,0 +1,19 @@
+.content {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-start;
+	flex: 0 1 #{$canvas_width}px;
+	box-sizing: border-box;
+	background: url("#{$image_path}/content_bg.png") no-repeat -100px -40px #f9f9f9;
+	padding-top: 80px;
+	padding-left: 130px;
+	padding-right: 130px;
+	@include xxlg-block() {
+		padding-left: 70px;
+		padding-right: 70px;
+	}
+}
+
+
+

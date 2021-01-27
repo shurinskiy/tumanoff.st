@@ -1,0 +1,12 @@
+.btn {
+	font-family: "MG", sans-serif;
+	letter-spacing: 0.05rem;
+	background-color: $accent;
+	color: #fff;
+	border: none;
+	outline: none;
+	padding: 20px 30px;
+	cursor: pointer;
+	transition: color 0.5s;
+	&:hover { color: $accident; }
+}

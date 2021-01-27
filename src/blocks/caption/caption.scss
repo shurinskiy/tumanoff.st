@@ -1,0 +1,61 @@
+.caption {
+	margin-bottom: 30px;
+	display: flex;
+	flex-flow: row nowrap;
+	font-family: "MG", sans-serif;
+	&__date {
+		color: #fff;
+		background-color: #a5a5a5;
+		font-family: "MGBL", sans-serif;
+		font-weight: bold;
+		box-sizing: border-box;
+		margin-left: -65px;
+		flex: 0 1 auto;
+		align-self: flex-start;
+		min-width: 135px;
+		min-height: 110px;
+		padding: 10px 15px;
+		span {
+			display: block;
+			text-align: center;
+			margin-bottom: 3px;
+			&:first-child {
+				font-size: 2.7rem;
+				line-height: 2.5rem;
+			}
+		}
+		&_feedback {
+			text-align: center;
+			vertical-align: middle;
+			@include inssymbol("FA", '\f0e0');
+			&:after {
+				font-size: 3.2rem;
+				line-height: 85px;
+			}
+		}
+	}
+	&__side {
+		flex: 1 1 auto;
+		margin-left: 30px;
+	}
+	&__title {
+		color: #333;
+		font-family: "MGB", sans-serif;
+		font-size: 1.9rem;
+		line-height: 1.9rem;
+		padding-bottom: 15px;
+		border-bottom: 3px solid $accent;
+		margin-bottom: 15px;
+		a {
+			text-decoration: none;
+			color: inherit;
+			&:hover { color: inherit; }
+		}
+	}
+	&__tags {
+		font-size: 0.9rem;
+		font-weight: bold;
+		letter-spacing: 1px;
+		text-transform: lowercase;
+	}
+}

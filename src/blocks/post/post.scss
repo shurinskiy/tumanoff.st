@@ -1,0 +1,77 @@
+.post {
+	align-items: stretch;
+	max-width: #{$canvas_width}px;
+	margin: 0 auto;
+	@include from(960px) {
+		margin-top: 0 !important;
+	}
+	@include xlg-block() {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+	&__body {
+		max-width: 1300px;
+		flex: 0 1 100%;
+		background-color: rgba(255, 255, 255, 0.8);
+		padding: 30px 40px;
+		margin-bottom: 80px;
+		box-shadow:  0px 2px 10px rgba(0,0,0,0.07);
+	}
+	&__caption {
+		
+	}
+	&__demo {
+		color: $accent;
+		display: block;
+		text-decoration: none;
+		background-color: #f6f6f6;
+		font-family: "MG", sans-serif;
+		font-size: 1.8rem;
+		padding: 25px 15px 25px 90px;
+		border-left: 4px solid #bcbcbc;
+		margin-bottom: #{$basesize}px;
+		position: relative;
+		@include inssymbol("FA", '\f085', "before");
+		&:before {
+			position: absolute;
+			left: 30px;
+			color: #bcbcbc;
+			font-size: 2.1rem;
+		}
+	}
+	&__note {
+		padding: 40px 20px 30px 40px;
+		background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 130 130"><defs><style>.cls-1 {fill: #d8e1d5;} .cls-2 {fill: #fff;fill-rule: evenodd;}</style></defs><circle id="circle" data-name="circle" class="cls-1" cx="65" cy="65" r="65"/><path id="shape" data-name="shape" class="cls-2" d="M42.113,27.465h41.2c6.372,0,11.9,8.153,11.9,11.9v11.9c0,13.617-20.141,18.094-20.141,25.634v2.747H52.183V73.239c0-9.431,17.394-14.219,17.394-19.225V50.352c0-1.318-.809-2.746-3.662-2.746h-23.8V27.465Zm10.07,57.676H75.07V106.2H52.183V85.141Z"/></svg>') no-repeat 20px 15px #f6f6f6; 
+		margin-bottom: #{$basesize}px;
+		border-left: 4px solid #91af89;
+	}
+	&__suppose {
+		padding: 40px 20px 30px 40px;
+		background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 130 130"><defs><style>.cls-1 {fill: #e1d5d5;}.cls-2 {fill: #fff;fill-rule: evenodd;}</style></defs><circle id="circle2" class="cls-1" cx="65" cy="65" r="65"/><path id="shape2" class="cls-2" d="M54,30H78L76,78H56Zm2,54H76v19H56V84Z"/></svg>') no-repeat 20px 15px #f6f6f6; 
+		margin-bottom: #{$basesize}px;
+		border-left: 4px solid #af8989;
+	}
+	&__signature {
+		display: flex;
+		justify-content: flex-end;
+		font-family: "MGB", sans-serif;
+		letter-spacing: 0.05rem;
+		margin-bottom: 40px;
+		&>div {
+			line-height: 1.4rem;
+			flex: 0 1 auto;
+			max-width: 50%;
+			span {
+				display: inline-block;
+				padding-left: 30px;
+				position: relative;
+				@include inssymbol("FA", '\f02d', "before");
+				&:before {
+					font-size: 1.4rem;
+					position: absolute;
+					left: 0;
+				}
+			}
+		}
+	}
+}

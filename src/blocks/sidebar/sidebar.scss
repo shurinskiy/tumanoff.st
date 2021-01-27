@@ -1,0 +1,104 @@
+.sidebar {
+	flex: 0 1 auto;
+	box-sizing: border-box;
+	padding-left: 90px;
+	padding-top: 60px;
+	background-color: rgba(9, 3, 0, 0.5);
+	background: url('#{$image_path}/sidebar_bg.png') no-repeat left top $brown;
+	&__logo {
+		margin-bottom: 80px;
+	}
+	&__avatar {
+		display: block;
+		box-sizing: border-box;
+		max-width: 260px;
+		padding: 0 30px 30px 0;
+		background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="210" height="210" viewBox="0 0 210 210"><defs><style>.rect {fill: #6A7145;fill-opacity:0.3;fill-rule: evenodd;}</style></defs><rect class="rect" width="210" height="210" x="0" y="0" rx="0" ry="0" /></svg>') no-repeat right bottom transparent;
+		margin-bottom: 100px;
+		@include md(display, none);
+		img { display: block; }
+	}
+	&__showmenu, &__hidemenu {
+		display: none;
+		color: #fff;
+		transition: color 0.5s;
+		@include inssymbol("FA", '\f0c9');
+		font-size: 1.7rem;
+		margin-top: 15px;
+		margin-left: auto;
+		margin-right: 50px;
+		cursor: pointer;
+		width: 20px;
+		height: 20px;
+		&:hover { color: $accident; }
+	}
+	&__hidemenu {
+		@include inssymbol("FA", "\f00d");
+		font-size: 2.2rem;
+		margin: 0;
+		position: absolute;
+		top: 35px;
+		right: 70px;
+	}
+	&__menu { 
+		overflow: auto; 
+	}
+}
+
+
+.sidebar {
+	@include xxxlg(padding-left, 60px);
+	@include md-block() {
+		padding-left: 20px;
+		padding-top: 20px;
+	}
+	&__logo {
+		@include md(margin-bottom, 30px);
+	}
+	&__menu {
+		@include md(display, none);
+	}
+	&__showmenu, &__hidemenu {
+		@include md(display, block);
+	}
+
+}
+
+
+.sidebar.menufixed {
+	@include md-block() {
+		position: fixed;
+		top: 0;
+		z-index: 10;
+		width: 100%;
+	}
+}
+
+
+input#showmenu {
+	display: none;
+	appearance: none;
+	border: none;
+	margin: 0;
+	padding: 0; 
+	height: 1px;  
+	position: absolute; 
+	top: -9999px; 
+	left: -9999px; 
+	&:checked ~ .sidebar__menu {
+		@include md-block() {
+			display: block;
+			box-sizing: border-box;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 9999;
+			width: 100%;
+			height: 100%;
+			min-height: 100vh;
+			padding-left: 20%;
+			padding-top: 150px;
+			background-color: rgba(9, 3, 0, 0.95);
+		}
+	}
+}

@@ -1,0 +1,31 @@
+.comment {
+	display: flex;
+	margin-bottom: 40px;
+	&__avatar {
+		min-width: 80px;
+		flex: 0 1 auto;
+	}
+	&__body {
+		flex: 1 1 auto;
+		padding-left: 25px;
+	}
+	&__author {
+		font-family: "MGB", sans-serif;
+		margin-bottom: 10px;
+		>span {
+			display: inline-block;
+			margin-left: 10px;
+			font-family: "RB", sans-serif;
+			font-size: 0.8rem;
+			color: #d2d2d2;
+			font-style: italic;
+		}
+	}
+	&__text {
+		margin-bottom: 5px;
+	}
+	&__reply {
+		font-size: 0.8rem;
+		font-style: italic;
+	}
+}

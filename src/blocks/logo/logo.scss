@@ -1,0 +1,28 @@
+.logo {
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+	max-width: 310px;
+	font-family: "MG", sans-serif;
+	font-size: 1.57rem;
+	line-height: 1.3rem;
+	color: white;
+	text-decoration: none;
+	text-align: right;
+	padding: 4px 40px;
+	border-bottom: 1px solid #9f9f9f;
+	@include inssymbol('FA','\f1ae','before');
+	&:before {
+		color: $accident;
+		font-size: 2.0rem;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+	span {
+		display: block;
+		color: #9f9f9f;
+		font-size: 0.85rem;
+	}
+}
+

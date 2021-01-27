@@ -1,0 +1,17 @@
+.blog {
+	display: block !important; // for IE10
+	max-width: #{$canvas_width}px;
+	margin: 0 auto;
+	&__items {
+		@include row-flex();
+	}	
+	&__item {
+		@include col();
+		@include size(8);
+		@include size-xxxxxlg(12);
+		@include size-xlg(24);
+		@include size-md(12);
+		@include size-sm(24);
+		margin-bottom: 50px;
+	}
+}

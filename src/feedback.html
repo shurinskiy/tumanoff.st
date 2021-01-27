@@ -1,0 +1,20 @@
+@@include("./templates/_head.html", {"bodyclass":""})
+<div class="main">
+	@@include("./templates/_sidebar.html")
+	<div class="content feedback">
+		<div class="feedback__body">
+			<div class="feedback__caption caption">
+				<div class="caption__date caption__date_feedback"></div>
+				<div class="caption__side">
+					<h2 class="caption__title">Быстрый способ связаться</h2>
+				</div>	
+			</div>
+			<form action="" class="feedback__form form form_vertical form_success">
+				<input type="text" class="form__text" placeholder="Имя" />
+				<input type="email" class="form__email" placeholder="Email" />
+				<textarea name="" id="" cols="30" rows="10" class="form__textarea" placeholder="Сообщение"></textarea>
+				<input type="submit" class="form__btn btn" value="Отправить" />
+			</form>
+		</div>	
+	</div>
+</div>@@include("./templates/_bottom.html")

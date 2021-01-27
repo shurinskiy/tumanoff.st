@@ -1,0 +1,14 @@
+.comments {
+	&__item {
+		
+	}
+	&__write {
+		font-family: "MGB", sans-serif;
+		color: #555;
+		display: block;
+		margin-bottom: 40px;
+	}
+	&__form.form {
+		display: none;
+	}
+}

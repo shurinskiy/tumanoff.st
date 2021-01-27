@@ -1,0 +1,72 @@
+/* БЛОК */
+.block {
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+	background-color: #eee;
+	margin-bottom: 40px;
+	min-height: 300px;
+	width: 100%;
+	
+	/* ЭЛЕМЕНТ */
+	&__element1 {	
+		background-color: #bdffcc;
+		margin: 10px;
+		height: 100px;
+		flex: 0 1 100px;
+		/* МОДИФИКАТОР ЭЛЕМЕНТА */
+		&_modifier1 {	
+			background-color: #fde0bd;
+		}
+		/* МОДИФИКАТОР ЭЛЕМЕНТА */
+		&_modifier2 {
+			background-color: #b0dfdb;
+		}
+		/* МНОЖЕСТВЕННЫЙ МОДИФИКАТОР ЭЛЕМЕНТА */
+		&_modifier1#{&}_modifier2 {
+			background-color: #afb1de;
+		}
+	}
+	
+	/* ЭЛЕМЕНТ */
+	&__element2 {	
+		background-color: #fefebf;
+		margin: 10px;
+		width: 100px;
+		height: 100px;
+		/* МОДИФИКАТОР ЭЛЕМЕНТА */
+		&_modifier1 {	
+			background-color: #bce1fd;
+		}
+	}
+	
+	/* МОДИФИКАТОР БЛОКА */
+	&_contoured {
+		flex-wrap: wrap;
+		border: 1px solid darken(#eee, 40%);
+	}
+
+	/* МОДИФИКАТОР БЛОКА */
+	&_contoured & {
+		/* ЭЛЕМЕНТ */
+		&__element1 {
+			border: 1px solid darken(#bdffcc, 40%);
+			/* МОДИФИКАТОР ЭЛЕМЕНТА */
+			&_modifier1 {
+				border-color: darken(#fde0bd, 40%);
+			}
+			/* МОДИФИКАТОР ЭЛЕМЕНТА */
+			&_modifier2 {
+				border-color: darken(#b0dfdb, 40%);
+			}
+		}
+		/* ЭЛЕМЕНТ */
+		&__element2 {
+			border: 1px solid darken(#fefebf, 40%);
+			/* МОДИФИКАТОР ЭЛЕМЕНТА */
+			&_modifier1 {
+				border-color: darken(#bce1fd, 40%);
+			}
+		}
+	}
+}

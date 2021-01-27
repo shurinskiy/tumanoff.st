@@ -1,0 +1,21 @@
+.menu {
+	font-family: "MG", sans-serif;
+	a { 
+		color: #fff; 
+		text-decoration: none;
+		&:hover { color: $accident; }
+	}
+	& ul { padding-top: 40px; }
+	&__title {
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		padding-bottom: 40px;
+		&.active > a { color: $accident; }
+	}
+	&__subtitle {
+		font-size: #{$basesize}px;
+		text-transform: none;
+		padding-bottom: 10px;
+		&.active > a { color: $accident; }
+	}
+}

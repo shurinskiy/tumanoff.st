@@ -1,0 +1,92 @@
+@@include("./templates/_head.html", {"bodyclass":""})
+<div class="main">
+	@@include("./templates/_sidebar.html")
+	<div class="content post">
+		<div class="post__body">
+			<div class="post__caption caption">
+				<div class="caption__date">
+					<span>15</span>
+					<span>декабря</span>
+					<span>2018</span>
+				</div>
+				<div class="caption__side">
+					<h2 class="caption__title">Полезные приемы адаптивной верстки</h2>
+					<div class="caption__tags">
+						<a href="./index.html">Lorem</a>
+						<a href="./index.html">Maxime</a>
+						<a href="./index.html">Dignissimos</a>
+					</div>
+				</div>	
+			</div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, libero. Voluptas autem harum cumque maiores. Consectetur aut eveniet totam est nisi veritatis? Est modi nisi vero. Nobis, molestias voluptatibus quaerat tempora atque sed voluptas, perspiciatis eaque excepturi commodi facilis maxime similique labore recusandae rem! Magnam non, odit neque provident labore. Perspiciatis doloremque distinctio, alias debitis harum. Excepturi labore reiciendis id, omnis eveniet unde quo corrupti obcaecati perspiciatis harum qui delectus quibusdam fugit beatae non, vero consequuntur libero dolore, eius! Ipsa cum enim veritatis voluptate excepturi labore ratione harum asperiores iure quasi repellendus eligendi illum pariatur qui tenetur, dolor mollitia, voluptatem, eos nesciunt hic nostrum a, saepe exercitationem provident. Unde maxime hic debitis nemo itaque quasi et numquam! Id, consequuntur fugiat repellendus deleniti accusantium eius laborum maiores, numquam veniam placeat! Fuga, esse reprehenderit enim temporibus, atque molestiae. Pariatur repellendus, nihil quod placeat quidem tempora corporis, omnis quia voluptas repellat sint, impedit.</p>
+			<a href="./index.html" class="post__demo">Демонстрация</a>
+			<p>Tempora, cumque vel praesentium unde. Magnam amet facilis temporibus corporis, illum incidunt optio laborum, omnis asperiores. Laborum tenetur velit veniam voluptatibus totam sit cum facilis accusantium modi aperiam asperiores similique expedita aliquid dolore a nemo facere laudantium earum quo ea laboriosam, ad explicabo. Quis blanditiis consectetur iusto minus facere asperiores quod aliquam tempora sint qui possimus cupiditate deleniti in quisquam porro aliquid, eius molestiae tempore quibusdam, beatae ea. Doloribus dolorem ipsum molestiae velit quaerat alias aut explicabo minus repellendus cupiditate, consequuntur culpa distinctio ad aspernatur magnam tempora obcaecati autem quasi iste.</p>
+<pre>
+<code class="php">/* Вешаю мою функцию, на стандартную, через её хук */
+add_filter('post_gallery', 'gallery_slider', 10, 2);
+function gallery_slider($output, $attr) {
+	return gallery_template($output, $attr, 'slider');
+}
+
+/* Пишу функцию, перехватывающую стандартный вывод галереи */
+function gallery_template($output, $attr, $slug) {
+	$post = get_post();
+	if (!preg_match("/{$slug}/i", $post->post_name )) return $output;
+	
+	$ids = explode(',', $attr['ids']);
+	$images = get_posts(array(
+		'include' => $ids,
+		'post_status' => 'inherit',
+		'post_type' => 'attachment',
+		'post_mime_type' => 'image',
+		'orderby' => 'post__in',
+	));
+	if ($images) {
+		ob_start();
+		include "template-parts/gallery-{$slug}.php";
+		$output = ob_get_clean();
+		return $output;
+	}
+}</code>
+</pre>			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe minus voluptate beatae, voluptates, ab commodi ipsam dolorem magnam architecto excepturi, nesciunt blanditiis. Ratione, asperiores perferendis eum vel, explicabo minima enim id cumque maiores numquam, fuga molestiae. Dolorem nobis consectetur, rerum similique, ullam sit at cum sed error? Nisi natus non, molestiae quos qui aspernatur labore id. Eveniet adipisci beatae iure maiores assumenda et labore error. Provident harum perspiciatis nisi ullam ipsum pariatur eligendi, iusto inventore esse voluptatibus cum, rerum quo!</p>
+			<div class="post__note">Tempore sed obcaecati nostrum enim illo quaerat laudantium labore laboriosam fuga sapiente recusandae ipsa ab eligendi neque maiores voluptate, quis temporibus dolorum quam dicta itaque, minima qui? Explicabo aut, eos doloremque dolor tempora. Quis debitis libero nam aperiam nemo facilis eaque mollitia cum. Officiis natus veritatis aut nobis quidem debitis nesciunt facere est amet. Incidunt hic ipsum, nostrum sequi.</div>
+			<p>Perspiciatis assumenda tempora ex culpa esse sequi mollitia distinctio dicta quod, hic ad, qui sed id vero, perferendis ab debitis excepturi officiis sunt tenetur dolores eius. Accusamus omnis deleniti dolorum excepturi consectetur a magni ipsum, corporis sunt dolore rerum voluptatem, aliquid ex architecto. Rerum atque, ad, minus delectus recusandae placeat quae at consequatur quibusdam ullam eos nam ipsa. Dolor rem labore temporibus, eaque dolorem!</p>
+			<div class="post__suppose">Quisquam cumque, vitae blanditiis tempore nesciunt dolor veniam iure dignissimos quas repudiandae architecto culpa sunt dolore quos sequi accusantium nemo impedit sapiente sit reiciendis nulla, animi placeat. Voluptas, cumque, blanditiis. </div>
+			<p>Repudiandae vel deserunt, officia earum harum cupiditate dignissimos quia accusamus quis, sint inventore animi! Nam dignissimos, beatae, assumenda alias aspernatur sapiente. Eos consequatur, quia dignissimos quae nisi rem ullam, sed maiores impedit? Sequi labore enim corrupti accusamus recusandae vitae, eligendi qui commodi repellendus! Dolorem dicta consequuntur animi fugit maxime repellendus unde nesciunt quia amet ipsa, possimus.</p>
+			<div class="post__signature">
+				<div><span>Источник:</span> <a href="google.com">www.google.com</a></div>
+			</div>
+			<hr class="separator"/>
+			<div class="comments">
+				<div class="comments__item comment">
+					<div class="comment__avatar"><img src="images/avatar.svg" alt="" /></div>
+					<div class="comment__body">
+						<div class="comment__author">Иван Иванович <span>19.04.2017 в 19:44</span></div>
+						<div class="comment__text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos omnis expedita quos saepe labore unde quas a sunt eius nihil soluta, nesciunt obcaecati et molestiae fuga incidunt veniam adipisci reiciendis fugiat facere perspiciatis. Rerum ad, dolorum earum, aspernatur possimus quae quaerat perferendis porro, doloremque explicabo reiciendis. Nihil explicabo similique hic!
+						</div>
+						<a href="./index.html" class="comment__reply">Ответить</a>
+					</div>
+				</div>
+				<div class="comments__item comment">
+					<div class="comment__avatar"><img src="images/avatar.svg" alt="" /></div>
+					<div class="comment__body">
+						<div class="comment__author">Петр Васильевич <span>19.04.2017 в 20:15</span></div>
+						<div class="comment__text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos omnis expedita quos saepe labore unde quas a sunt eius nihil soluta, nesciunt obcaecati et molestiae fuga incidunt veniam adipisci reiciendis fugiat facere perspiciatis. Rerum ad, dolorum earum, aspernatur possimus quae quaerat perferendis porro, doloremque explicabo reiciendis. Nihil explicabo similique hic!
+						</div>
+						<a href="./index.html" class="comment__reply">Ответить</a>
+					</div>
+				</div>
+				<a href="./index.html" class="comments__write">Оставьте комментарий</a>
+				<form action="" class="comments__form form">
+					<input type="text" class="form__text" placeholder="Имя">
+					<input type="email" class="form__email" placeholder="Email">
+					<textarea class="form__textarea" name="" id="" cols="30" rows="10" placeholder="Сообщение"></textarea>
+					<input type="submit" class="form__btn btn" value="Опубликовать">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>@@include("./templates/_bottom.html")

@@ -1,0 +1,75 @@
+.form {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: flex-start;
+	font-family: "MG", sans-serif;
+	font-size: 1.2rem;
+	position: relative;
+
+	&__text {
+		outline: none;
+		border: none;
+		background-color: #f6f6f6;
+		padding: 20px 40px;
+		margin-bottom: 40px;
+		flex: 0 1 48%;
+		box-sizing: border-box;
+		@include sm(flex-basis, 100%);
+		&::placeholder { color: #bbb; }
+	}
+	&__email {
+		outline: none;
+		border: none;
+		background-color: #f6f6f6;
+		padding: 20px 40px;
+		margin-bottom: 40px;
+		flex: 0 1 48%;
+		box-sizing: border-box;
+		@include sm(flex-basis, 100%);
+		&::placeholder { color: #bbb; }
+	}
+	&__textarea {
+		outline: none;
+		border: none;
+		background-color: #f6f6f6;
+		padding: 20px 40px;
+		margin-bottom: 40px;
+		vertical-align: top;
+		overflow: auto;
+		resize: none;		
+		box-sizing: border-box;
+		flex: 0 1 100%;
+		&::placeholder { color: #bbb; }
+	}
+	&__btn {
+		margin-left: auto;
+	}
+	&_vertical & {
+		&__text {
+			flex: 0 1 100%;
+		}
+		&__email {
+			flex: 0 1 100%;
+		}
+	}
+	&_success, &_error {
+		&:before {
+			content: "";
+			position: absolute;
+			display: block;
+			right: 0;
+			top: 0;
+			width: 250px;
+			height: 250px;
+			background: transparent url("#{$image_path}/success.png") 0 0 no-repeat;
+			background-size: contain;
+			transform: rotate(45deg);
+		}
+	}
+	&_error {
+		&:before {
+			background-image: url("#{$image_path}/error.png");
+		}
+	}
+}

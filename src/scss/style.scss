@@ -1,0 +1,123 @@
+@import "lib/additional.scss"; 
+@import "lib/smart-grid.scss"; 
+@include reset(); 
+
+@import "../../node_modules/highlight.js/styles/vs";
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../blocks/block/block.scss";
+@import "../blocks/blog/blog.scss";
+@import "../blocks/btn/btn.scss";
+@import "../blocks/caption/caption.scss";
+@import "../blocks/comment/comment.scss";
+@import "../blocks/comments/comments.scss";
+@import "../blocks/content/content.scss";
+@import "../blocks/feedback/feedback.scss";
+@import "../blocks/footer/footer.scss";
+@import "../blocks/form/form.scss";
+@import "../blocks/logo/logo.scss";
+@import "../blocks/menu/menu.scss";
+@import "../blocks/main/main.scss";
+@import "../blocks/post/post.scss";
+@import "../blocks/sidebar/sidebar.scss";
+@import "../blocks/teaser/teaser.scss";
+@import "../blocks/wellcome/wellcome.scss";
+@import "../blocks/hljs/hljs.scss";
+
+
+
+@include font-face("fontawesome-webfont", "FA");
+@include font-face("Magistral", "MG");
+@include font-face("MagistralBold", "MGB");
+@include font-face("MagistralBlack", "MGBL");
+@include font-face("Roboto-Black", "RBBL");
+@include font-face("Roboto-BlackItalic", "RBBLI");
+@include font-face("Roboto-Bold", "RBB");
+@include font-face("Roboto-BoldItalic", "RBBI");
+@include font-face("Roboto-Light", "RBL");
+@include font-face("Roboto-LightItalic", "RBLI");
+@include font-face("Roboto-Regular", "RB");
+@include font-face("Roboto-Italic", "RBI");
+
+
+// layout styles
+html {
+	position: relative;
+	font-size: #{$basesize}px;
+	line-height: calc(#{$basesize} * 8%);
+	font-family: "RB", sans-serif;
+	background-color: #f8f8f8;
+	color: #555;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+	&.home {
+		background: url("#{$image_path}/main_bg.png") no-repeat center top transparent;
+		background-size: cover;
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 795px;
+			height: 400px;
+			z-index: 0;
+			background: url("#{$image_path}/dev_ofweb.png") no-repeat right bottom transparent;
+		}
+	}
+
+	/* На всех страницах */
+	.main {
+		@include md(flex-wrap, wrap);
+	}
+
+	.sidebar {
+		min-width: 480px;
+		min-height: calc(100vh - 60px);
+		@include xxxlg(min-width, 400px);
+		@include md-block() {
+			display: flex;
+			align-self: flex-start;
+			flex-basis: 100%;
+			min-height: auto;
+			height: 100px;
+		}
+	}
+
+	/* На главной */
+	&.home .sidebar { 
+		min-height: 100vh; 
+		@include md(min-height, auto);
+		background-image: none;
+		background-color: rgba(9, 3, 0, 0.5);
+	}
+	&.home .content { z-index: 1; background: none; }
+	&.home .footer { display: none; }
+
+}
+
+// Common styles
+a {	
+	color: $accent;
+	transition: color 0.5s;
+	&:hover {
+		text-decoration: none;
+		color: $accident;
+	}
+}
+p { margin-bottom: #{$basesize}px; }
+/* .noscroll {
+	position: fixed;
+	overflow: hidden;
+	width: 100%;
+} */
+.separator {
+	display: block;
+	border: none;
+	border-top: 1px solid #d8d8d8;
+	margin-bottom: 40px;
+}
+pre code { margin-bottom: 1rem; white-space: pre-wrap; }
